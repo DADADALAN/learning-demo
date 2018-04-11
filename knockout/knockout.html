@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Knockout Learning</title>
+    <link rel="stylesheet" href="./css.css">
+    <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.4.2.js"></script>
+  </head>
+  <body>
+    <!-- text with attr -->
+    <div id="bodyDom" data-bind="with: common">
+      <h1 data-bind="text: title"></h1>
+      <p>Author：<a data-bind="attr: { href: 'https://github.com/DADADALAN' }"><span data-bind="text: author"></span></a></p>
+    </div>
+
+    <!-- value submit -->
+    <div id="itemOne">
+      <form data-bind="submit: submitForm">
+        <label>Name: </label><input data-bind="value: name" />
+        <label>Age: </label><input data-bind="value: age" />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <!-- foreach click style event visible if -->
+    <div id="itemTwo" data-bind="event: { mouseover: onMouseOver, mouseout: onMouseOut }">
+      <table data-bind="style: { background: isOver() ? '#eeeeee':'' }">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th></th>
+        </tr>
+        <!-- ko foreach: listData -->
+        <tr>
+          <td><span data-bind="text: name"></span></td>
+          <td><span data-bind="text: age"></span></td>
+          <td><button data-bind="click: $parent.deleteItem">Delete</button></td>
+        </tr>
+        <!-- /ko -->
+        <tr>
+          <td><input data-bind="value: newName" /></td>
+          <td><input data-bind="value: newAge" /></td>
+          <td><button data-bind="click: addItem">Add</button></td>
+        </tr>
+      </table>
+      <div data-bind="visible: isOver">Visible!</div>
+      <div data-bind="if: !isOver()">Show that if leave!</div>
+    </div>
+
+    <!-- html css -->
+    <div id="itemThree" data-bind="css: { onadd: isInner}">
+      <button data-bind="click: innerNewDom">Add New</button>
+      <div data-bind="html: newDom"></div>
+    </div>
+
+    <script type="text/javascript" src="./knockout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+body{
+	margin: 0;
+	border: 0;
+	padding: 10px;
+}
+#itemOne , #itemTwo , #itemThree{
+	margin: 20px 0;
+	padding: 20px 10px;
+	border: 1px solid #cccccc;
+}
+.onadd{
+	background: #eeeeee;
+}
+.newdiv{
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+	display: inline-block;
+	background: goldenrod;
+}
